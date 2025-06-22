@@ -1,0 +1,14 @@
+http:
+  routers:
+    static-files:
+      rule: "PathPrefix(`/`)"
+      entryPoints:
+        - web
+      service: static-service
+
+  services:
+    static-service:
+      loadBalancer:
+        servers:
+          - url: "http://localhost:8080"
+
